@@ -1,4 +1,4 @@
-from src.algorithms.base_algorithm import BaseAlgorithm
+from shapley_bankruptcy.algorithms.base_algorithm import BaseAlgorithm
 import random
 
 class MonteCarloAlgorithm(BaseAlgorithm):

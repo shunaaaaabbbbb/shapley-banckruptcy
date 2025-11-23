@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 import time
 
-from src.schemas.input_schema import AlgorithmInput
-from src.schemas.output_schema import AlgorithmResult
+from shapley_bankruptcy.schemas.input_schema import AlgorithmInput
+from shapley_bankruptcy.schemas.output_schema import AlgorithmResult
 
 class BaseAlgorithm(ABC):
     """
