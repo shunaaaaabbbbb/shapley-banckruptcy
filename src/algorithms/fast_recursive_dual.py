@@ -1,5 +1,5 @@
 from functools import lru_cache
-from algorithms.base_algorithm import BaseAlgorithm
+from src.algorithms.base_algorithm import BaseAlgorithm
 
 
 class FastDualRecursiveAlgorithm(BaseAlgorithm):
