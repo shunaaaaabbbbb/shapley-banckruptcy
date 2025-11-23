@@ -1,4 +1,4 @@
-from algorithms.base_algorithm import BaseAlgorithm
+from src.algorithms.base_algorithm import BaseAlgorithm
 
 import math
 from itertools import combinations
