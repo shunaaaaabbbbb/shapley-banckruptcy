@@ -1,5 +1,5 @@
 [project]
-name = "shapley-banckruptcy"
+name = "shapley-bankruptcy"
 version = "0.1.2"
 description = "Algorithms for computing the Shapley value in bankruptcy games"
 authors = [
