@@ -1,6 +1,6 @@
 [project]
-name = "shapley-banckruptcy"
-version = "0.1.0"
+name = "shapley-bankruptcy"
+version = "0.1.1"
 description = "Algorithms for computing the Shapley value in bankruptcy games"
 authors = [
     { name = "Shunta Yamazaki", email = "shuntaweb@gmail.com" }
