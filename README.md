@@ -11,9 +11,14 @@ A bankruptcy game is a cooperative game where an estate of value E must be divid
 ### Requirements
 
 - Python 3.11 or higher
-- Poetry (for package management)
 
-### Setup
+### Install from PyPI
+
+```bash
+pip install shapley-bankruptcy
+```
+
+### Install from source
 
 ```bash
 # Clone the repository
@@ -21,7 +26,7 @@ git clone <repository-url>
 cd shapley-banckruptcy
 
 # Install dependencies
-poetry install
+pip install -e .
 ```
 
 ## Usage
@@ -29,19 +34,23 @@ poetry install
 ### Basic Example
 
 ```python
-from algorithms import FastDPAlgorithm, MonteCarloAlgorithm, ExactSetAlgorithm
+from shapley_bankruptcy.algorithms import (
+    DynamicProgrammingAlgorithm,
+    MonteCarloAlgorithm,
+    ExactAlgorithm
+)
 
 # Problem setup
 E = 100  # Total estate value
 w = [50, 60, 80]  # Claims of each player
 
 # Select an algorithm and compute
-algorithm = FastDPAlgorithm()
-algorithm.compute(E, w)
+algorithm = DynamicProgrammingAlgorithm()
+result = algorithm.compute(E, w)
 
 # Get results
-shapley_values = algorithm.return_value()
-computation_time = algorithm.return_time()
+shapley_values = result.value
+computation_time = result.elapsed_time
 
 print(f"Shapley values: {shapley_values}")
 print(f"Computation time: {computation_time} seconds")
@@ -49,15 +58,15 @@ print(f"Computation time: {computation_time} seconds")
 
 ### Implemented Algorithms
 
-#### 1. `ExactSetAlgorithm`
+#### 1. `ExactAlgorithm`
 An exact algorithm based on the definition of the Shapley value. It enumerates all subsets to compute the value.
 
 ```python
-from algorithms import ExactSetAlgorithm
+from shapley_bankruptcy.algorithms import ExactAlgorithm
 
-algorithm = ExactSetAlgorithm()
-algorithm.compute(E, w)
-result = algorithm.return_value()
+algorithm = ExactAlgorithm()
+result = algorithm.compute(E, w)
+shapley_values = result.value
 ```
 
 **Features:**
@@ -65,45 +74,45 @@ result = algorithm.return_value()
 - Time complexity: O(2ⁿ × n)
 - Suitable for small-scale problems
 
-#### 2. `FastDPAlgorithm`
+#### 2. `DynamicProgrammingAlgorithm`
 A fast algorithm using dynamic programming.
 
 ```python
-from algorithms import FastDPAlgorithm
+from shapley_bankruptcy.algorithms import DynamicProgrammingAlgorithm
 
-algorithm = FastDPAlgorithm()
-algorithm.compute(E, w)
-result = algorithm.return_value()
+algorithm = DynamicProgrammingAlgorithm()
+result = algorithm.compute(E, w)
+shapley_values = result.value
 ```
 
 **Features:**
 - Efficient computation using dynamic programming
 - Suitable for medium to large-scale problems
 
-#### 3. `FastRecursiveAlgorithm`
+#### 3. `RecursiveAlgorithm`
 A fast algorithm using recursive formulas.
 
 ```python
-from algorithms import FastRecursiveAlgorithm
+from shapley_bankruptcy.algorithms import RecursiveAlgorithm
 
-algorithm = FastRecursiveAlgorithm()
-algorithm.compute(E, w)
-result = algorithm.return_value()
+algorithm = RecursiveAlgorithm()
+result = algorithm.compute(E, w)
+shapley_values = result.value
 ```
 
 **Features:**
 - Fast computation using recursive formulas with memoization
 - Optimized by precomputing characteristic functions
 
-#### 4. `FastDualRecursiveAlgorithm`
+#### 4. `RecursiveDualAlgorithm`
 A fast algorithm using dual recursive formulas.
 
 ```python
-from algorithms import FastDualRecursiveAlgorithm
+from shapley_bankruptcy.algorithms import RecursiveDualAlgorithm
 
-algorithm = FastDualRecursiveAlgorithm()
-algorithm.compute(E, w)
-result = algorithm.return_value()
+algorithm = RecursiveDualAlgorithm()
+result = algorithm.compute(E, w)
+shapley_values = result.value
 ```
 
 **Features:**
@@ -114,12 +123,12 @@ result = algorithm.return_value()
 An approximation algorithm using the Monte Carlo method.
 
 ```python
-from algorithms import MonteCarloAlgorithm
+from shapley_bankruptcy.algorithms import MonteCarloAlgorithm
 
 # Specify the number of samples (default: 10000)
 algorithm = MonteCarloAlgorithm(M=50000, seed=42)
-algorithm.compute(E, w)
-result = algorithm.return_value()
+result = algorithm.compute(E, w)
+shapley_values = result.value
 ```
 
 **Features:**
@@ -132,9 +141,9 @@ result = algorithm.return_value()
 All algorithms can round results to a specified number of decimal places (default: 5 digits).
 
 ```python
-algorithm = FastDPAlgorithm(round_digits=3)
-algorithm.compute(E, w)
-result = algorithm.return_value()  # Results rounded to 3 decimal places
+algorithm = DynamicProgrammingAlgorithm(round_digits=3)
+result = algorithm.compute(E, w)
+shapley_values = result.value  # Results rounded to 3 decimal places
 ```
 
 ## Algorithm Details
@@ -163,8 +172,8 @@ The Shapley value φᵢ for player i is defined as:
 
 Choose an algorithm based on the problem size and accuracy requirements:
 
-- **Small-scale (n ≤ 10)**: `ExactSetAlgorithm` is appropriate
-- **Medium-scale (10 < n ≤ 20)**: `FastDPAlgorithm` or `FastRecursiveAlgorithm` is recommended
+- **Small-scale (n ≤ 10)**: `ExactAlgorithm` is appropriate
+- **Medium-scale (10 < n ≤ 20)**: `DynamicProgrammingAlgorithm` or `RecursiveAlgorithm` is recommended
 - **Large-scale (n > 20)**: `MonteCarloAlgorithm` is practical
 
 ## License
