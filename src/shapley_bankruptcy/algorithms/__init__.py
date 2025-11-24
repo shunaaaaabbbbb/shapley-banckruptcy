@@ -1,15 +1,15 @@
 from shapley_bankruptcy.algorithms.base_algorithm import BaseAlgorithm
-from shapley_bankruptcy.algorithms.fast_dp import FastDPAlgorithm
-from shapley_bankruptcy.algorithms.exact_set import ExactSetAlgorithm
+from shapley_bankruptcy.algorithms.dynamic_programming import DynamicProgrammingAlgorithm
+from shapley_bankruptcy.algorithms.exact import ExactAlgorithm
 from shapley_bankruptcy.algorithms.monte_carlo import MonteCarloAlgorithm
-from shapley_bankruptcy.algorithms.fast_recursive import FastRecursiveAlgorithm
-from shapley_bankruptcy.algorithms.fast_recursive_dual import FastDualRecursiveAlgorithm
+from shapley_bankruptcy.algorithms.recursive import RecursiveAlgorithm
+from shapley_bankruptcy.algorithms.recursive_dual import RecursiveDualAlgorithm
 
 __all__ = [
     "BaseAlgorithm",
-    "FastDPAlgorithm",
-    "ExactSetAlgorithm",
+    "DynamicProgrammingAlgorithm",
+    "ExactAlgorithm",
     "MonteCarloAlgorithm",
-    "FastRecursiveAlgorithm",
-    "FastDualRecursiveAlgorithm",
+    "RecursiveAlgorithm",
+    "RecursiveDualAlgorithm",
 ]
