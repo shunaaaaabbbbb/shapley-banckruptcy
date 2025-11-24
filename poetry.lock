@@ -253,6 +253,22 @@ files = [
 typing-extensions = ">=4.14.1"
 
 [[package]]
+name = "shapley-bankruptcy"
+version = "0.1.1"
+description = "Algorithms for computing the Shapley value in bankruptcy games"
+optional = false
+python-versions = ">=3.11"
+groups = ["main"]
+files = [
+    {file = "shapley_bankruptcy-0.1.1-py3-none-any.whl", hash = "sha256:10a3228b049af039a393cb79d9cda8cc8b057af4048635a92b9fe257d985c4ec"},
+    {file = "shapley_bankruptcy-0.1.1.tar.gz", hash = "sha256:79f64713af74c7b8565d75b517377e0a30eb375681c9d19f5b689d5471ce5b69"},
+]
+
+[package.dependencies]
+numpy = ">=2.3.5,<3.0.0"
+pydantic = ">=2.12.4,<3.0.0"
+
+[[package]]
 name = "typing-extensions"
 version = "4.15.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
@@ -282,4 +298,4 @@ typing-extensions = ">=4.12.0"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "691657f56fb3566104266038c04de0c136b51d3198c8613dde4a67a344d04322"
+content-hash = "6a4d2902f39a2260771973e54a9dc6eb86e556abecd63afc2b862eec93e6a2ff"
