@@ -2,9 +2,11 @@
 
 Implementation of algorithms for computing the Shapley value in bankruptcy games. This repository contains implementations of algorithms proposed in the paper "On Computing the Shapley Value in Bankruptcy Games".
 
+ArXiv: https://arxiv.org/abs/2511.22208
+
 ## Overview
 
-A bankruptcy game is a cooperative game where an estate of value E must be divided among creditors with claims w = (w₁, w₂, ..., wₙ). This implementation provides multiple efficient algorithms for computing the Shapley value in such games.
+A bankruptcy game is a cooperative game where an estate of value $E$ must be divided among creditors with claims $w = (w_1, w_2, ..., w_n)$. This implementation provides multiple efficient algorithms for computing the Shapley value in such games.
 
 ## Installation
 
@@ -22,7 +24,7 @@ pip install shapley-bankruptcy
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/shunaaaaabbbbb/shapley-banckruptcy.git
 cd shapley-banckruptcy
 
 # Install dependencies
@@ -69,11 +71,6 @@ result = algorithm.compute(E, w)
 shapley_values = result.value
 ```
 
-**Features:**
-- Guarantees exact results
-- Time complexity: O(2ⁿ × n)
-- Suitable for small-scale problems
-
 #### 2. `DynamicProgrammingAlgorithm`
 A fast algorithm using dynamic programming.
 
@@ -84,10 +81,6 @@ algorithm = DynamicProgrammingAlgorithm()
 result = algorithm.compute(E, w)
 shapley_values = result.value
 ```
-
-**Features:**
-- Efficient computation using dynamic programming
-- Suitable for medium to large-scale problems
 
 #### 3. `RecursiveAlgorithm`
 A fast algorithm using recursive formulas.
@@ -100,10 +93,6 @@ result = algorithm.compute(E, w)
 shapley_values = result.value
 ```
 
-**Features:**
-- Fast computation using recursive formulas with memoization
-- Optimized by precomputing characteristic functions
-
 #### 4. `RecursiveDualAlgorithm`
 A fast algorithm using dual recursive formulas.
 
@@ -114,10 +103,6 @@ algorithm = RecursiveDualAlgorithm()
 result = algorithm.compute(E, w)
 shapley_values = result.value
 ```
-
-**Features:**
-- Recursive computation using dual characteristic functions
-- Fast computation with memoization
 
 #### 5. `MonteCarloAlgorithm`
 An approximation algorithm using the Monte Carlo method.
@@ -131,11 +116,6 @@ result = algorithm.compute(E, w)
 shapley_values = result.value
 ```
 
-**Features:**
-- Fast computation even for large-scale problems
-- Adjustable balance between accuracy and speed via the number of samples M
-- Reproducible results with seed setting
-
 ### Output Rounding
 
 All algorithms can round results to a specified number of decimal places (default: 5 digits).
@@ -148,33 +128,25 @@ shapley_values = result.value  # Results rounded to 3 decimal places
 
 ## Algorithm Details
 
-For detailed descriptions and theoretical background of each algorithm, please refer to the paper "On Computing the Shapley Value in Bankruptcy Games".
+For detailed descriptions and theoretical background of each algorithm, please refer to the paper [On Computing the Shapley Value in Bankruptcy Games](https://arxiv.org/abs/2511.22208).
 
 ### Characteristic Function of Bankruptcy Games
 
-The characteristic function v(S) of a bankruptcy game is defined as:
+The characteristic function $v(S)$ of a bankruptcy game is defined as:
 
-```
-v(S) = max(0, E - Σ_{j∉S} wⱼ)
+```math
+v(S) = \max(0, E - \sum_{i\in N\setminus S} w_i)
 ```
 
-where E is the total estate value and wⱼ is the claim of player j.
+where $E$ is the total estate value and $w_i$ is the claim of player $i$.
 
 ### Shapley Value
 
-The Shapley value φᵢ for player i is defined as:
+The Shapley value $\phi_i$ for player $i$ is defined as:
 
+```math
+\phi_i = \sum_{S\subseteq N\setminus \{i\}} \frac{|S|!(n-|S|-1)!}{n!}(v(S\cup \{i\}) - v(S))
 ```
-φᵢ = Σ_{S⊆N\{i}} (|S|!(n-|S|-1)!/n!) × [v(S∪{i}) - v(S)]
-```
-
-## Performance
-
-Choose an algorithm based on the problem size and accuracy requirements:
-
-- **Small-scale (n ≤ 10)**: `ExactAlgorithm` is appropriate
-- **Medium-scale (10 < n ≤ 20)**: `DynamicProgrammingAlgorithm` or `RecursiveAlgorithm` is recommended
-- **Large-scale (n > 20)**: `MonteCarloAlgorithm` is practical
 
 ## License
 
@@ -182,8 +154,8 @@ See the `LICENSE` file for license information.
 
 ## Author
 
-ShuntaYamazaki (shuntaweb@gmail.com)
+Shunta Yamazaki (shuntaweb@gmail.com)
 
 ## References
 
-This is an implementation of algorithms proposed in the paper "On Computing the Shapley Value in Bankruptcy Games".
+This is an implementation of algorithms proposed in the paper [On Computing the Shapley Value in Bankruptcy Games](https://arxiv.org/abs/2511.22208).
