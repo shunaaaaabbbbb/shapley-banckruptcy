@@ -89,7 +89,7 @@ shapley_values = result.value
 ```
 
 #### 3. `RecursiveAlgorithm`
-A fast algorithm using recursive formulas.
+A fast algorithm using recursive formulas by [O'Neil (1982)](https://www.sciencedirect.com/science/article/abs/pii/0165489682900294).
 
 ```python
 from shapley_bankruptcy.algorithms import RecursiveAlgorithm
