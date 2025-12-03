@@ -1,3 +1,10 @@
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+[![arXiv](https://img.shields.io/badge/arXiv-2511.22208-b31b1b?logo=arxiv)](https://arxiv.org/abs/2511.22208)
+![NumPy](https://img.shields.io/badge/NumPy-Used-blue?logo=numpy)
+![Algorithms](https://img.shields.io/badge/Algorithms-Game%20Theory-yellow)
+
 # Shapley-Bankruptcy
 
 Implementation of algorithms for computing the Shapley value in bankruptcy games. This repository contains implementations of algorithms proposed in the paper "On Computing the Shapley Value in Bankruptcy Games".
